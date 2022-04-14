@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+  <style>
+
+    *{
+        box-sizing: border-box;
+    }
+    
+    
+    .flex-container {
+      display: flex;
+      flex-wrap: nowrap;
+    
+      
+    }
+    
+    .flex-container > div {
+      background-color: #f1f1f1;
+      width: 300px;
+      margin: 10px;
+      height: 200px;
+      text-align: center;
+
+    } 
+    
+    #inp{
+    
+        width: 50%
+        padding 10px; 
+  
+        background-color: #648CD1;
+         color: #31D8EB;  
+        margin: auto; 
+
+    
+    }
+
+    #sub{
+
+  width: 30% 
+  padding 10px; 
+  margin-top:20px;
+  text-align:center;
+
+}
+
+    </style>
+    
+
+    
+    <div class="container">
+        <h2>AI-POWERED Leaf Detection:</h2>
+
+        
+        <br>
+        <h1>steps to be follow:</h1>
+        
+        <div class="flex-container">
+        
+          <div>
+               <h3>STEP 1</h3>
+              
+              <form action="" method="POST" enctype="multipart/form-data">
+               
+            <input id='inp' type="file" name="inputfiles"  accept="image/x-png,image/gif,image/jpeg" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+        
+           <img id="blah" alt="your image" width="100" height="100" />
+           <br>
+        
+        
+               <input id='sub' type="submit" name="submit">
+        
+              
+              </form>
+          </div>  
+        
+          <div>
+            <h3>STEP 2</h3>
+            <p> <a class="btn btn-primary btn-lg" href="{{url_for('predict')}}" role="button">Click me</a></p>
+              <p>PREDICTION =
+                {{prediction}}
+                PREDICTION_value ={{result}}
+
+              </p>
+              
+          </div>
+
+         
+        </div>
+        
+        {% block content %}
+        
+        {% endblock  %}
+
+        <footer class="w3-container w3-padding-64 w3-center w3-black w3-xlarge">
+            Powered by <a href="https://www.linkedin.com/in/penugonda-saichand-b38a17206/" target="_blank">saichand</a>
+            </p>
+          </footer>
+
+        <script>
+            // Automatic Slideshow - change image every 3 seconds
+            var myIndex = 0;
+            carousel();
+            
+            function carousel() {
+              var i;
+              var x = document.getElementsByClassName("mySlides");
+              for (i = 0; i < x.length; i++) {
+                 x[i].style.display = "none";
+              }
+              myIndex++;
+              if (myIndex > x.length) {myIndex = 1}
+              x[myIndex-1].style.display = "block";
+              setTimeout(carousel, 3000);
+            }
+            </script>
+    
+</body>
+</html>
